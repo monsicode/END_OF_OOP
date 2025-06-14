@@ -37,6 +37,24 @@ void Statistics::resize(size_t size) {
 
 }
 
+size_t Statistics::getCharCounts(std::ifstream& ifs, char ch) {
+    size_t curPos = ifs.tellg();
+
+    size_t count = 0;
+    char cur;
+    while(ifs.get(cur)){
+        if(ch == cur){
+            count++;
+        }
+    }
+
+    //deletes the flags for error after we reach the end of the file
+    ifs.clear();
+    ifs.seekg(curPos);
+
+    return count;
+}
+
 
 Statistics::Statistics(const Statistics &other) {
     copy(other);
@@ -56,14 +74,18 @@ Statistics::~Statistics() {
 
 void Statistics::load(const char *fileName) {
 
+    if(!fileName){
+        return;
+    }
+
     std::ifstream file(fileName);
 
     if (!file.is_open()) {
         std::cout << "Error reading file\n";
     }
 
+    sizeArr = getCharCounts(file, ' ');
     delete[] arr;
-    file >> sizeArr;
     arr = new double[sizeArr];
     for (int i = 0; i < sizeArr; i++) {
         file >> arr[i];

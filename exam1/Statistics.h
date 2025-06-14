@@ -12,8 +12,9 @@ class Statistics {
     void free();
     void resize(size_t size);
 
-public:
 
+public:
+    size_t getCharCounts(std::ifstream& ifs, char ch);
     Statistics(){
         sizeArr = 4;
         arr = new double [sizeArr];
