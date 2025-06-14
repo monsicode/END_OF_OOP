@@ -35,3 +35,26 @@
 *.exe
 *.out
 *.app
+
+# Игнорирай всичко
+*
+
+# Разреши .gitignore файла
+!.gitignore
+
+# Разреши .cpp и .h файлове
+!*.cpp
+!*.h
+
+# Разреши директориите (за да може да вижда .cpp/.h вътре)
+!*/
+
+# Допълнително – игнорирай CLion/IDE файлове
+.idea/
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
