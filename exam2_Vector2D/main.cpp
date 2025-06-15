@@ -9,6 +9,4 @@ int main() {
     vec += vec2;
     Vector2D vec3 = 2 * vec;
     vec3.print();
-
-
 }

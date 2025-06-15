@@ -16,6 +16,7 @@ public:
 
     friend Vector2D operator^(const Vector2D &vec1, const Vector2D &vec2);
 
+    //сравняваме просто два обекта от клас вектор, независими
     friend bool operator==(const Vector2D &vec1, const Vector2D &vec2);
     friend bool operator!=(const Vector2D &vec1, const Vector2D &vec2);
 
